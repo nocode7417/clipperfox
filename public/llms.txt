@@ -1,0 +1,84 @@
+# Clipperfox
+
+> Clipperfox is a free, browser-based YouTube video clipping tool that lets users extract specific moments from any public YouTube video and download them as clean 720p MP4 files. No account, no install, no watermark. Average time from URL to exported clip is under 45 seconds.
+
+## What Clipperfox Does
+
+Clipperfox solves a common problem: extracting a specific segment from a YouTube video without installing software, creating accounts, or dealing with watermarks. Users paste a YouTube URL, set precise start and end points on a frame-accurate interactive timeline, and export the selection as a universally compatible MP4 file.
+
+Key capabilities:
+- Clips any public YouTube video (YouTube hosts over 800 million active videos)
+- Exports at 1280×720 (720p HD) using H.264 video codec and AAC audio at 128 kbps
+- Compression uses CRF 18 for near-lossless visual quality at efficient file sizes
+- Processing completes in under 30 seconds for most clips; clips under 60 seconds finish in 5–10 seconds
+- Maximum clip length: 10 minutes
+- Zero data retention — temporary files are deleted the instant the download completes
+- No cookies, no tracking, no account data collected
+
+## How to Use Clipperfox
+
+1. Go to https://clipperfox.com
+2. Paste a public YouTube video URL into the input field
+3. Click "Start Clipping" to load the video preview
+4. Drag the timeline handles to set your clip's start and end points
+5. Click "Export Clip" — the clip is processed server-side and downloads automatically as an MP4
+
+## Keyboard Shortcuts (Desktop)
+
+- `I` — Set clip start to current playback position (same convention as Adobe Premiere Pro and DaVinci Resolve)
+- `O` — Set clip end to current playback position
+- `←` Arrow Left — Rewind 5 seconds
+- `→` Arrow Right — Skip forward 5 seconds
+
+## Mobile Gestures
+
+- Double-tap left side of video — rewind 10 seconds
+- Double-tap right side of video — skip forward 10 seconds
+- Touch-optimized timeline handles for precise selection on smaller screens
+
+## Technical Architecture
+
+- Frontend: Next.js 16 (React 19), single-page app with server-side rendering
+- Video download: yt-dlp with format selector targeting 720p MP4
+- Video encoding: ffmpeg with libx264, CRF 18, 128k AAC
+- Output filter: scale=1280:720:force_original_aspect_ratio=decrease, padded with black bars if source aspect ratio differs
+- Hosting: Vercel (serverless functions for clip processing)
+- Analytics: Vercel Analytics for Core Web Vitals (LCP, CLS, INP, TTFB)
+
+## Comparison to Alternatives
+
+| Feature | Clipperfox | Most competitors |
+|---------|-----------|-----------------|
+| Cost | Free | Freemium / paid |
+| Account required | No | Yes |
+| Watermark | None | Often added |
+| Export quality | 720p HD | Often limited |
+| Software install | None (browser-based) | Often required |
+| Data retention | Zero | Varies |
+
+## Frequently Asked Questions
+
+**What platforms does Clipperfox support?**
+Clipperfox supports YouTube. Any public YouTube video can be clipped by pasting its URL.
+
+**Is Clipperfox really free?**
+Yes. 100% free with no signup, no credit card, no watermarks, no premium tier, and no hidden fees.
+
+**What format and quality are clips exported in?**
+MP4 at 1280×720 (720p HD), H.264 video, AAC audio at 128 kbps. Compatible with iOS, Android, Windows, macOS, and all major social platforms.
+
+**Does Clipperfox store my clips?**
+No. Temporary files are deleted from the server the instant the download completes. No user data, clips, or browsing history is retained.
+
+**Is it safe to use?**
+Clipperfox requires no downloads, extensions, or permissions. All processing is server-side using ffmpeg and yt-dlp. HTTPS with security headers (X-Content-Type-Options, X-Frame-Options, strict referrer policy).
+
+**Can I use it on mobile?**
+Yes. Fully responsive on iOS Safari and Android Chrome with touch-optimized timeline and double-tap skip gestures.
+
+## URLs
+
+- Homepage: https://clipperfox.com
+- Sitemap: https://clipperfox.com/sitemap.xml
+- Robots: https://clipperfox.com/robots.txt
+- LLMs: https://clipperfox.com/llms.txt
