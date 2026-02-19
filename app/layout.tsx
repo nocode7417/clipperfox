@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -29,6 +28,9 @@ export const metadata: Metadata = {
     "video clipper tool online",
     "extract clip from youtube",
   ],
+  verification: {
+    google: "FlHLLkzn92F4ySM0eB-u5MDP8lsxdr0EwM4UVWRxGV8",
+  },
   authors: [{ name: "Clipperfox", url: SITE_URL }],
   creator: "Clipperfox",
   robots: {
@@ -257,7 +259,6 @@ export default function RootLayout({
         >
           {children}
         </div>
-        <Analytics />
       </body>
     </html>
   );
