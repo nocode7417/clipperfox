@@ -226,6 +226,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0STBQRQPRV"></script>
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0STBQRQPRV');
+        `}} />
         <style>{`
           *, *::before, *::after { box-sizing: border-box; }
           html, body { margin: 0; padding: 0; height: 100%; }
