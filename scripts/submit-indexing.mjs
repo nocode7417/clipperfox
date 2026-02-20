@@ -78,14 +78,11 @@ function getAuthClient() {
     process.exit(1);
   }
 
-  const key = JSON.parse(fs.readFileSync(KEY_PATH, "utf-8"));
-  return new google.auth.JWT(
-    key.client_email,
-    null,
-    key.private_key,
-    ["https://www.googleapis.com/auth/indexing"],
-    null
-  );
+  const auth = new google.auth.GoogleAuth({
+    keyFile: KEY_PATH,
+    scopes: ["https://www.googleapis.com/auth/indexing"],
+  });
+  return auth;
 }
 
 // ── Submit URLs ─────────────────────────────────────────────────────────
