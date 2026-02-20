@@ -576,14 +576,13 @@ export default function LandingPage() {
           gap: 8px;
           width: 100%;
           letter-spacing: 0.01em;
-          box-shadow: 0 2px 12px rgba(225, 85, 53, 0.25);
+          box-shadow: none;
           text-decoration: none;
-          transition: opacity 0.15s ease, box-shadow 0.15s ease, transform 150ms ease-out;
+          transition: opacity 0.15s ease, transform 150ms ease-out;
         }
 
         .cta-button:hover {
           opacity: 0.92;
-          box-shadow: 0 4px 20px rgba(225, 85, 53, 0.35);
         }
 
         .cta-button:active {
