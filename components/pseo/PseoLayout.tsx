@@ -1,5 +1,4 @@
 import type { KeywordRow } from "@/lib/getKeywords";
-import ClipTool from "@/components/ClipTool";
 
 interface PseoLayoutProps {
   data: KeywordRow;
@@ -354,21 +353,6 @@ export default function PseoLayout({ data, children }: PseoLayoutProps) {
         {/* Template content */}
         {children}
 
-        {/* Tutorial */}
-        <div className="pseo-divider" />
-        <section className="pseo-tutorial">
-          <p className="pseo-section-label">How it works</p>
-          <h2 className="pseo-section-title">See it in action.</h2>
-          <div className="pseo-tutorial-wrap">
-            <video
-              src="/videos/tutorial.mp4"
-              controls
-              playsInline
-              preload="metadata"
-            />
-          </div>
-        </section>
-
         {/* FAQ */}
         {data.faq.length > 0 && (
           <>
@@ -390,11 +374,6 @@ export default function PseoLayout({ data, children }: PseoLayoutProps) {
             </section>
           </>
         )}
-
-        {/* Bottom Tool Embed */}
-        <div className="pseo-tool-bottom">
-          <ClipTool defaultAction={data.primaryAction || "trim"} />
-        </div>
 
         {/* Footer */}
         <footer className="pseo-footer">

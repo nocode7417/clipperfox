@@ -6,3 +6,5 @@ tmp/
 next-env.d.ts
 .env*.local
 service-account.json
+clipperfox-pseo-099fcce72659.json
+*.json.key
