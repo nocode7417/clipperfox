@@ -34,6 +34,8 @@ const KEY_PATH = path.join(ROOT, "service-account.json");
 const SITE = "https://clipperfox.com";
 const DAILY_QUOTA = 200;
 const isDryRun = process.argv.includes("--dry-run");
+const offsetArg = process.argv.find((a) => a.startsWith("--offset="));
+const OFFSET = offsetArg ? parseInt(offsetArg.split("=")[1], 10) : 0;
 
 // ── Collect URLs from the Excel source ──────────────────────────────────
 function getSitemapUrls() {
@@ -106,7 +108,8 @@ async function main() {
     console.warn(`   Run this script again tomorrow for the rest.\n`);
   }
 
-  const batch = urls.slice(0, DAILY_QUOTA);
+  const batch = urls.slice(OFFSET, OFFSET + DAILY_QUOTA);
+  console.log(`Submitting URLs ${OFFSET + 1} to ${OFFSET + batch.length} of ${urls.length}`);
 
   if (isDryRun) {
     console.log(`\n🔍 Dry run — URLs that would be submitted:\n`);
